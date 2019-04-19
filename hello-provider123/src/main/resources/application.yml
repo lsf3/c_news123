@@ -1,0 +1,12 @@
+# dubbo : 应用名称、注册中心、暴露协议、监控中心
+dubbo:
+  application:
+    name: hello-provider  # 应用名称
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+  protocol:
+    name: dubbo
+    port: 20880
+  monitor:
+    protocol: registry    # 自动发现

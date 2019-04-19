@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<!-- 样式 -->
+<style type="text/css">
+	h1{
+		text-align: center;
+	}
+	table{
+		width: 600px;
+		border-collapse: collapse;
+		margin: 0 auto;
+	}
+	td,th{
+		border: 1px solid black;
+		height: 35px;
+	}
+	th{
+		background-color: #ccc;
+	}
+	#new-title{
+		background-color: white;
+		font-size: 26px;
+		font-weight: bold;
+		height: 45px;
+	}
+</style>
+</head>
+<body>
+	<form th:action="@{/news}" th:object="${news}" method="post">
+	<input type="hidden" th:field="*{id}">
+	<input type="hidden" name="_method" value="PUT">
+	<table>
+		<tr id="new-title">
+			<td colspan="2">更新新闻内容</td>
+		</tr>
+		<tr>
+			<td>新闻编号</td>
+			<td th:text="*{id}"></td>
+		</tr>
+		<tr>
+			<td>新闻分类</td>
+			<td>
+				<select th:field="*{categoryId}">
+					<option th:each="category:${categoryList}" 
+					 th:value="${category.id}"
+					 th:label="${category.name}"></option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>新闻标题</td>
+			<td>
+				<input type="text" th:field="*{title}">
+			</td>
+		</tr>
+		<tr>
+			<td>新闻摘要</td>
+			<td>
+				<textarea rows="5" cols="60" th:field="*{summary}"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>作者</td>
+			<td>
+				<input type="text" th:field="*{author}">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button>提交</button>
+				<button type="button">返回</button>
+			</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

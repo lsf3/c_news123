@@ -1,0 +1,21 @@
+# 端口
+server:
+  port: 8889
+  servlet:
+    context-path: /kgc
+    
+# thymeleaf
+spring:
+  thymeleaf:
+    cache: false
+    
+# dubbo : 应用名称、注册中心、暴露协议、监控中心
+dubbo:
+  application:
+    name: news-consumer
+  registry:
+    address: 192.168.71.136:2181
+    protocol: zookeeper
+    
+  consumer:
+    check: false

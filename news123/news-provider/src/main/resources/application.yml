@@ -1,0 +1,31 @@
+# dubbo : 应用名称、注册中心、暴露协议、监控中心
+dubbo:
+  application:
+    name: news-provider
+  registry:
+    address: 192.168.71.136:2181
+    protocol: zookeeper
+  protocol:
+    name: dubbo
+    port: 20880
+
+
+
+# 数据源
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.71.136:3306/db1810
+    driver-class-name: com.mysql.jdbc.Driver
+
+# mybatis
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: cn.kgc.entities
+  configuration:
+    map-underscore-to-camel-case: true  # 驼峰映射
+    
+logging:
+  level:
+    cn.kgc.dao: debug

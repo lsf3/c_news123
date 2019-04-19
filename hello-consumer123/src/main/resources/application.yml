@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+spring:
+  thymeleaf:
+    cache: false
+    
+# dubbo
+dubbo:
+  application:
+    name: hello-consumer
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+  monitor:
+    protocol: registry
